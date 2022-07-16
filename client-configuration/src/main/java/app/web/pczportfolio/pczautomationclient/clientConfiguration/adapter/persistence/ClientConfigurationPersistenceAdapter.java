@@ -9,14 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 class ClientConfigurationPersistenceAdapter implements
-        ClientConfigurationPortConfigurationExists,
-        ClientConfigurationPortSave {
+        ClientConfigurationPortSave,
+        ClientConfigurationPortFindExisting {
     private final ClientConfigurationEntityJpaRepository jpaRepository;
-
-    @Override
-    public boolean configurationExists() {
-        return jpaRepository.configurationExists();
-    }
 
     @Override
     public ClientConfiguration save(ClientConfiguration clientConfiguration) {
