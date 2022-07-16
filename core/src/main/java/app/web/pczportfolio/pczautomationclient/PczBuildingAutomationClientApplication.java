@@ -1,4 +1,4 @@
-package app.web.pczportfolio.pczautomationclient.pczbuildingautomationclient;
+package app.web.pczportfolio.pczautomationclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
