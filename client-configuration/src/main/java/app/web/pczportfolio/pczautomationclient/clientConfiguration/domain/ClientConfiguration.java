@@ -13,9 +13,9 @@ public class ClientConfiguration {
     private long id;
     private long version;
     private long locationId;
-    private String clientName;
-    private String clientHashCode;
-    private String authenticationToken;
+    private String clientName = "";
+    private String clientHashCode = "";
+    private String authenticationToken = "";
 
 
     public ClientConfiguration() {
