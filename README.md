@@ -9,3 +9,8 @@ Responsibilities of app is:
 
 ### Client configuration:
  - [ ] ClientConfiguration domain,
+ - [ ] useCase assign authorization token,
+ - [ ] security (external userDetailsService),
+ - [ ] set name,
+ - [ ] useCase assign location id,
+ - [ ] useCase client living notify,
