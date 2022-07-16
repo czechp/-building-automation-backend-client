@@ -1,8 +1,8 @@
-package app.web.pczportfolio.pczautomationclient.adapter.persistence;
+package app.web.pczportfolio.pczautomationclient.clientConfiguration.adapter.persistence;
 
-import app.web.pczportfolio.pczautomationclient.application.port.ClientConfigurationPortConfigurationExists;
-import app.web.pczportfolio.pczautomationclient.application.port.ClientConfigurationPortSave;
-import app.web.pczportfolio.pczautomationclient.domain.ClientConfiguration;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortConfigurationExists;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortSave;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.domain.ClientConfiguration;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

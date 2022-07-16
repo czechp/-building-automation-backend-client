@@ -1,4 +1,4 @@
-package app.web.pczportfolio.pczautomationclient.adapter.persistence;
+package app.web.pczportfolio.pczautomationclient.clientConfiguration.adapter.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

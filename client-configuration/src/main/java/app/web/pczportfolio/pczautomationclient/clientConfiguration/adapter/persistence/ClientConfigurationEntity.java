@@ -1,6 +1,6 @@
-package app.web.pczportfolio.pczautomationclient.adapter.persistence;
+package app.web.pczportfolio.pczautomationclient.clientConfiguration.adapter.persistence;
 
-import app.web.pczportfolio.pczautomationclient.domain.ClientConfiguration;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.domain.ClientConfiguration;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package app.web.pczportfolio.pczautomationclient.domain;
+package app.web.pczportfolio.pczautomationclient.clientConfiguration.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
