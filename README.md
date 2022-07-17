@@ -8,7 +8,7 @@ Responsibilities of app is:
 ## TODO 
 
 ### Client configuration:
- - [ ] ClientConfiguration domain,
+ - [x] ClientConfiguration domain,
  - [ ] useCase assign authorization token,
  - [ ] security (external userDetailsService),
  - [ ] set name,
