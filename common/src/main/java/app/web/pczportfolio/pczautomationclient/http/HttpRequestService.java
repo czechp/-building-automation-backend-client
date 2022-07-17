@@ -1,11 +1,11 @@
 package app.web.pczportfolio.pczautomationclient.http;
 
+import app.web.pczportfolio.pczautomationclient.http.exception.HttpRequestSendException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -42,7 +42,7 @@ public class HttpRequestService {
             return this;
         }
 
-        public Builder methodGet() {
+        public Builder getMethod() {
             this.requestBuilder.GET();
             return this;
         }

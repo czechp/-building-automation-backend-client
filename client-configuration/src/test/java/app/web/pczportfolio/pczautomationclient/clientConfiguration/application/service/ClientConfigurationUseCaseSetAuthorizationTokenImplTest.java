@@ -5,7 +5,7 @@ import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortSave;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.useCase.ClientConfigurationUseCaseSetAuthorizationToken;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.domain.ClientConfiguration;
-import app.web.pczportfolio.pczautomationclient.exception.clientConfiguration.InvalidUsernameOrPasswordException;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.exception.InvalidUsernameOrPasswordException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

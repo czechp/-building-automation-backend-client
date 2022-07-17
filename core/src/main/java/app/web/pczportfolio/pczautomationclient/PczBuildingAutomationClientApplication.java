@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PczBuildingAutomationClientApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PczBuildingAutomationClientApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PczBuildingAutomationClientApplication.class, args);
+    }
 
 }
