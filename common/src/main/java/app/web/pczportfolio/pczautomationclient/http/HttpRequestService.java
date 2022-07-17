@@ -17,23 +17,39 @@ import java.util.Base64;
 public class HttpRequestService {
     @Value("${backend.url}")
     private String BACKEND_URL;
+    private Logger logger;
 
-    public HttpResponse<String> send(HttpRequest httpRequest) throws IOException, InterruptedException {
-        return HttpClient.newBuilder()
-                .build()
-                .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+    public HttpRequestService() {
+        this.logger = LoggerFactory.getLogger(HttpRequestService.class);
     }
+
+    public HttpResponse<String> send(HttpRequest httpRequest) {
+        try {
+            return HttpClient.newBuilder()
+                    .build()
+                    .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        } catch (Exception exception) {
+            logger.info(exception.getLocalizedMessage());
+            throw new HttpRequestSendException("Error during sending request");
+        }
+    }
+
     public class Builder {
-        private HttpRequest.Builder requestBuilder;
+        private final HttpRequest.Builder requestBuilder;
 
         public Builder() {
             this.requestBuilder = HttpRequest.newBuilder();
         }
 
 
-        public Builder toBackend(String endpoint) throws URISyntaxException {
-            this.requestBuilder.uri(new URI(BACKEND_URL + endpoint));
-            return this;
+        public Builder toBackend(String endpoint) {
+            try {
+                this.requestBuilder.uri(new URI(BACKEND_URL + endpoint));
+                return this;
+            } catch (URISyntaxException e) {
+                logger.info(e.getLocalizedMessage());
+                throw new HttpRequestSendException("Error during converting URL address");
+            }
         }
 
         public Builder withAuthorization(String username, String password) {
