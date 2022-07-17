@@ -1,9 +1,11 @@
 package app.web.pczportfolio.pczautomationclient.clientConfiguration.domain;
 
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.dto.ClientConfigurationLoginDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.Base64;
 import java.util.UUID;
 
 @Getter
@@ -24,4 +26,11 @@ public class ClientConfiguration {
     }
 
 
+    public void assignAuthorizationToken(ClientConfigurationLoginDto loginDto) {
+        final var encodedToken = Base64.getEncoder().encodeToString(new String(loginDto.getUsername() + ":" + loginDto.getPassword()).getBytes());
+        this.authenticationToken = new StringBuilder()
+                .append("Basic ")
+                .append(encodedToken)
+                .toString();
+    }
 }

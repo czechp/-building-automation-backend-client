@@ -5,6 +5,7 @@ import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortSave;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.useCase.ClientConfigurationUseCaseSetAuthorizationToken;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.domain.ClientConfiguration;
+import app.web.pczportfolio.pczautomationclient.exception.clientConfiguration.InvalidUsernameOrPasswordException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,12 @@ class ClientConfigurationUseCaseSetAuthorizationTokenImpl implements ClientConfi
     @Override
     @Transactional
     public ClientConfiguration assignAuthorizationToken(ClientConfigurationLoginDto loginDto) {
-        return null;
+        final var configuration = configurationProviderService.getConfigurationOrCreateIfNotExists();
+        if (authenticateUser.userAuthenticated(loginDto)) {
+            configuration.assignAuthorizationToken(loginDto);
+            configurationPortSave.save(configuration);
+            return configuration;
+        } else
+            throw new InvalidUsernameOrPasswordException();
     }
 }
