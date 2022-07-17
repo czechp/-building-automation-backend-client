@@ -17,7 +17,7 @@ import java.util.Base64;
 public class HttpRequestService {
     @Value("${backend.url}")
     private String BACKEND_URL;
-    private Logger logger;
+    private final Logger logger;
 
     public HttpRequestService() {
         this.logger = LoggerFactory.getLogger(HttpRequestService.class);
