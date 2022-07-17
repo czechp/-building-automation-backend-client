@@ -1,6 +1,5 @@
 package app.web.pczportfolio.pczautomationclient.clientConfiguration.adapter.persistence;
 
-import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortConfigurationExists;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortFindExisting;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortSave;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.domain.ClientConfiguration;
