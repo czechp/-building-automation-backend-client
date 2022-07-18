@@ -15,19 +15,23 @@ import java.util.Base64;
 
 @Service
 public class HttpRequestService {
+    private final Logger logger;
+    private final HttpResponseErrorHandler httpResponseErrorHandler;
     @Value("${backend.url}")
     private String BACKEND_URL;
-    private final Logger logger;
 
-    public HttpRequestService() {
+    public HttpRequestService(HttpResponseErrorHandler httpResponseErrorHandler) {
+        this.httpResponseErrorHandler = httpResponseErrorHandler;
         this.logger = LoggerFactory.getLogger(HttpRequestService.class);
     }
 
-    public HttpResponse<String> send(HttpRequest httpRequest) {
+    public HttpResponse<String> sendAndResolveErrors(HttpRequest httpRequest) {
         try {
-            return HttpClient.newBuilder()
+            HttpResponse<String> httpResponse = HttpClient.newBuilder()
                     .build()
                     .send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            httpResponseErrorHandler.handleErrorByResponseStatusCode(httpResponse.statusCode());
+            return httpResponse;
         } catch (Exception exception) {
             logger.info(exception.getLocalizedMessage());
             throw new HttpRequestSendException("Error during sending request");
