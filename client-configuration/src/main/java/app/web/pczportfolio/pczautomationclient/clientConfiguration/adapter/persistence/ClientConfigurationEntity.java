@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Table(name = "client_configuration")
 @Getter(AccessLevel.PACKAGE)
 @Setter(AccessLevel.PACKAGE)
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder(setterPrefix = "with")
 class ClientConfigurationEntity {
     @Id

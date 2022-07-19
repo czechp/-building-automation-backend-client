@@ -1,4 +1,4 @@
-package app.web.pczportfolio.pczautomationclient.exception.clientConfiguration;
+package app.web.pczportfolio.pczautomationclient.clientConfiguration.exception;
 
 public class InvalidUsernameOrPasswordException extends RuntimeException {
     public InvalidUsernameOrPasswordException() {
