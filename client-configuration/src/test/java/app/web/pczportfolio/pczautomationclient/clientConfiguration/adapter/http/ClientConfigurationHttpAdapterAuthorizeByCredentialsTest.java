@@ -1,7 +1,7 @@
 package app.web.pczportfolio.pczautomationclient.clientConfiguration.adapter.http;
 
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.dto.ClientConfigurationLoginDto;
-import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortAuthenticateUser;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortAuthorizeByCredentials;
 import app.web.pczportfolio.pczautomationclient.http.HttpRequestSender;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,15 +24,15 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ClientConfigurationHttpAdapterSetAuthorizationTokenTest {
+class ClientConfigurationHttpAdapterAuthorizeByCredentialsTest {
     @Mock
     HttpRequestSender httpRequestSender;
 
-    ClientConfigurationPortAuthenticateUser configurationPortAuthenticateUser;
+    ClientConfigurationPortAuthorizeByCredentials configurationPortAuthenticateUser;
 
     @BeforeEach
     void init() {
-        this.configurationPortAuthenticateUser = new ClientConfigurationHttpAdapterSetAuthorizationToken(httpRequestSender);
+        this.configurationPortAuthenticateUser = new ClientConfigurationHttpAdapterAuthorizeByCredentials(httpRequestSender);
     }
 
     @Test

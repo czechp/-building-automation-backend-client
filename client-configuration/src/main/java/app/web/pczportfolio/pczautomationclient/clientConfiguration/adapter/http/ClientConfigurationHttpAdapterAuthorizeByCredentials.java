@@ -1,11 +1,9 @@
 package app.web.pczportfolio.pczautomationclient.clientConfiguration.adapter.http;
 
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.dto.ClientConfigurationLoginDto;
-import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortAuthenticateUser;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortAuthorizeByCredentials;
 import app.web.pczportfolio.pczautomationclient.http.HttpRequestSender;
 import lombok.AllArgsConstructor;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.net.http.HttpRequest;
@@ -14,7 +12,7 @@ import java.util.Base64;
 
 @Service
 @AllArgsConstructor
-class ClientConfigurationHttpAdapterSetAuthorizationToken implements ClientConfigurationPortAuthenticateUser {
+class ClientConfigurationHttpAdapterAuthorizeByCredentials implements ClientConfigurationPortAuthorizeByCredentials {
     private static final String LOGIN_ENDPOINT = "/api/external-login";
 
     private final HttpRequestSender httpRequestSender;

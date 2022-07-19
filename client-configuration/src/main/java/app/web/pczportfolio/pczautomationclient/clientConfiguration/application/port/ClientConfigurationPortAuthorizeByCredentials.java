@@ -2,6 +2,6 @@ package app.web.pczportfolio.pczautomationclient.clientConfiguration.application
 
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.dto.ClientConfigurationLoginDto;
 
-public interface ClientConfigurationPortAuthenticateUser {
+public interface ClientConfigurationPortAuthorizeByCredentials {
     boolean userAuthenticated(ClientConfigurationLoginDto loginDto);
 }

@@ -1,7 +1,7 @@
 package app.web.pczportfolio.pczautomationclient.clientConfiguration.application.service;
 
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.dto.ClientConfigurationLoginDto;
-import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortAuthenticateUser;
+import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortAuthorizeByCredentials;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.port.ClientConfigurationPortSave;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.application.useCase.ClientConfigurationUseCaseSetAuthorizationToken;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.domain.ClientConfiguration;
@@ -21,7 +21,7 @@ class ClientConfigurationUseCaseSetAuthorizationTokenImplTest {
     @Mock
     ClientConfigurationProviderService configurationProviderService;
     @Mock
-    ClientConfigurationPortAuthenticateUser configurationPortAuthenticateUser;
+    ClientConfigurationPortAuthorizeByCredentials configurationPortAuthenticateUser;
     @Mock
     ClientConfigurationPortSave configurationPortSave;
 
