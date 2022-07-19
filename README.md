@@ -11,7 +11,7 @@ Responsibilities of app is:
 ### Client configuration:
 
 - [x] ClientConfiguration domain,
-- [ ] useCase assign authorization token,
+- [x] useCase assign authorization token,
 - [ ] security (external userDetailsService),
 - [ ] set name,
 - [ ] useCase assign location id,
