@@ -13,7 +13,7 @@ Responsibilities of app is:
 - [x] ClientConfiguration domain,
 - [x] useCase assign authorization token,
 - [x] security (external userDetailsService),
-- [ ] set name,
+- [x] set name,
 
 #### Use case assign location id:
 - [ ] query to getting all unassigned locations,
