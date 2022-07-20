@@ -2,6 +2,7 @@ package app.web.pczportfolio.pczautomationclient.clientConfiguration.adapter.per
 
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.domain.ClientConfiguration;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 
@@ -22,6 +23,7 @@ class ClientConfigurationEntity {
 
     private long locationId;
 
+    @Length(min = 5, message = "Client name has to have minimum 5 characters")
     private String clientName;
 
     private String clientHashCode;
