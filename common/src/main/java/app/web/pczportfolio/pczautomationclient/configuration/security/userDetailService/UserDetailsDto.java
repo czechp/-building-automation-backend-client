@@ -1,5 +1,6 @@
-package app.web.pczportfolio.pczautomationclient.clientConfiguration.application.dto;
+package app.web.pczportfolio.pczautomationclient.configuration.security.userDetailService;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientConfigurationUserDetailsDto implements UserDetails {
+class UserDetailsDto implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
     private String password;
     private String username;
@@ -22,6 +23,7 @@ public class ClientConfigurationUserDetailsDto implements UserDetails {
     private boolean enabled;
 
     @Override
+    @JsonDeserialize(using = UserDetailsDtoDeserializer.class)
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }

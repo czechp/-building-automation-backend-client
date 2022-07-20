@@ -1,6 +1,7 @@
 package app.web.pczportfolio.pczautomationclient.configuration;
 
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.exception.InvalidUsernameOrPasswordException;
+import app.web.pczportfolio.pczautomationclient.exception.JsonMappingException;
 import app.web.pczportfolio.pczautomationclient.http.exception.*;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ class ControllerAdviceHandler {
         return createResponseEntity(HttpStatus.UNAUTHORIZED, exception.getMessage());
     }
 
-    @ExceptionHandler({HttpBadRequestException.class, HttpRequestSendException.class})
+    @ExceptionHandler({HttpBadRequestException.class, HttpRequestSendException.class, JsonMappingException.class})
     public ResponseEntity<Map<String, String>> badRequestHandler(Exception exception) {
         return createResponseEntity(HttpStatus.BAD_REQUEST, exception.getMessage());
     }
