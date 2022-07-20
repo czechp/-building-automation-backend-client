@@ -3,12 +3,13 @@ package app.web.pczportfolio.pczautomationclient.configuration;
 import app.web.pczportfolio.pczautomationclient.clientConfiguration.exception.InvalidUsernameOrPasswordException;
 import app.web.pczportfolio.pczautomationclient.exception.JsonMappingException;
 import app.web.pczportfolio.pczautomationclient.http.exception.*;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,17 @@ class ControllerAdviceHandler {
     @ExceptionHandler({HttpBadRequestException.class, HttpRequestSendException.class, JsonMappingException.class})
     public ResponseEntity<Map<String, String>> badRequestHandler(Exception exception) {
         return createResponseEntity(HttpStatus.BAD_REQUEST, exception.getMessage());
+    }
+
+
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity<Map<String, String>> badRequestConstraintViolationExceptionHandler(ConstraintViolationException exception) {
+        final var message = exception.getConstraintViolations().stream()
+                .map(ConstraintViolation::getMessage)
+                .findAny()
+                .orElse("There is no defined constraint message");
+
+        return createResponseEntity(HttpStatus.BAD_REQUEST, message);
     }
 
     @ExceptionHandler({HttpExternalSystemError.class})
