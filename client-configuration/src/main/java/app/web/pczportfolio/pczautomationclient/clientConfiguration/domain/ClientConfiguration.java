@@ -33,4 +33,8 @@ public class ClientConfiguration {
                 .append(encodedToken)
                 .toString();
     }
+
+    public void assignName(String name) {
+        this.clientName = name;
+    }
 }
