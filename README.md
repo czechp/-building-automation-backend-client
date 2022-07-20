@@ -12,7 +12,10 @@ Responsibilities of app is:
 
 - [x] ClientConfiguration domain,
 - [x] useCase assign authorization token,
-- [ ] security (external userDetailsService),
+- [x] security (external userDetailsService),
 - [ ] set name,
-- [ ] useCase assign location id,
-- [ ] useCase client living notify,
+
+#### Use case assign location id:
+- [ ] query to getting all unassigned locations,
+- [ ] use case to assign and unassigned location id,
+- [ ] when unassigned clear all gpio bindings with devices,  
